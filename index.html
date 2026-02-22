@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS Safe Counter</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #counter {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter">0</div>
+  <button id="btn">Increase</button>
+
+  <script>
+    const counterElement = document.getElementById("counter");
+    const button = document.getElementById("btn");
+
+    let count = 0;
+
+    button.addEventListener("pointerdown", function () {
+      count++;
+      counterElement.textContent = count;
+    });
+  </script>
+
+</body>
+</html>
