@@ -25,60 +25,47 @@
         }
 
         input {
-            background-color: #eeeeee;
-            border-color: #eeeeee;
+            background-color: #E7DFEC;
+            border-color: #E7DFEC;
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
         }
 
-        .header-row{
-            border: 1px solid #005580;
-            background-color: #005580;  
-            padding: 6px;
+        .sub-row{
+            margin-top: 6px;
+            border: 1px solid #E7DFEC;
+            background-color: #E7DFEC;
             border-radius: 8px;
+            padding: 2px;
+            margin:12px auto;
             display: flex;
-            gap: 6px; /* */
-            margin-top: 20px;
+            justify-content: flex-start;
         }
 
-        .result-row {
-            display: flex;
-            gap: 6px; /* */
-            margin-top: 6px; 
-        }
-
-        .box {
-            flex: 1;
-            border: 1px solid #eeeeee;
-            background-color: #eeeeee;  
-            padding: 6px;   
+        .label-box{
+            width: 120px;
             text-align: center;
-            border-radius: 6px;
-
-            overflow-wrap: anywhere;
-            white-space: normal;
-        }
-
-        .section {
-            margin-top: 15px; 
-            border: 1px solid #005580;
-            background-color: #005580;  
-            padding: 6px;
-            border-radius: 8px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 6px; 
-            font-size: 18px;
+            background-color: #674FA3;
             color:white;
+            border-radius: 6px;
+            padding: 6px;
         }
 
-        .empty-box {
-            min-height: 20px;
+        .value-box{
+            flex: 1;
+            background-color: #E7DFEC;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-weight:800;
+            font-size: large;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            direction: ltr;
         }
+
     </style>
 </head>
 <body>
@@ -93,173 +80,39 @@
         <input type="number" id="installments" oninput="calculate()">
     </div>
 
-    <!-- header -->
-    <div class="header-row">
-        <div class="box">قسط ماهانه</div>
-        <div class="box">سود</div>
-        <div class="box">اصل و سود</div>
+    <br/>
+
+    <div class="sub-row">
+        <div class="label-box">قسط ماهانه با کارمزد</div>
+        <div class="value-box" id="monthlyInstallmentWithWage">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">سه درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance3"></div>
-            <div class="box empty-box" id="profitWithEntrance3"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance3"></div>
-        </div>
+    <div class="sub-row">
+        <div class="label-box">سود</div>
+        <div class="value-box" id="profit">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">چهار درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance4"></div>
-            <div class="box empty-box" id="profitWithEntrance4"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance4"></div>
-        </div>
+    <div class="sub-row">
+        <div class="label-box">اصل و سود</div>
+        <div class="value-box" id="totalAmount">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">پنج درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance5"></div>
-            <div class="box empty-box" id="profitWithEntrance5"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance5"></div>
-        </div>
+    <div class="sub-row">
+        <div class="label-box">قسط ماهانه</div>
+        <div class="value-box" id="monthlyInstallment">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">شش درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance6"></div>
-            <div class="box empty-box" id="profitWithEntrance6"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance6"></div>
-        </div>
+    <div class="sub-row">
+        <div class="label-box">کارمزد</div>
+        <div class="value-box" id="wage">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">هفت درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance7"></div>
-            <div class="box empty-box" id="profitWithEntrance7"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance7"></div>
-        </div>
+    <div class="sub-row">
+        <div class="label-box">راسی</div>
+        <div class="value-box" id="due">0</div>
     </div>
 
-    <div class="section">
-        <div class="section-title">هشت درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance8"></div>
-            <div class="box empty-box" id="profitWithEntrance8"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance8"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">نه درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance9"></div>
-            <div class="box empty-box" id="profitWithEntrance9"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance9"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">ده درصد با ورودی</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallmentwithEntrance10"></div>
-            <div class="box empty-box" id="profitWithEntrance10"></div>
-            <div class="box empty-box" id="totalAmountWithEntrance10"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">سه درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment3"></div>
-            <div class="box empty-box" id="profit3"></div>
-            <div class="box empty-box" id="totalAmount3"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">چهار درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment4"></div>
-            <div class="box empty-box" id="profit4"></div>
-            <div class="box empty-box" id="totalAmount4"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">پنج درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment5"></div>
-            <div class="box empty-box" id="profit5"></div>
-            <div class="box empty-box" id="totalAmount5"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">شش درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment6"></div>
-            <div class="box empty-box" id="profit6"></div>
-            <div class="box empty-box" id="totalAmount6"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">هفت درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment7"></div>
-            <div class="box empty-box" id="profit7"></div>
-            <div class="box empty-box" id="totalAmount7"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">هشت درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment8"></div>
-            <div class="box empty-box" id="profit8"></div>
-            <div class="box empty-box" id="totalAmount8"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">نه درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment9"></div>
-            <div class="box empty-box" id="profit9"></div>
-            <div class="box empty-box" id="totalAmount9"></div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-title">ده درصد</div>
-
-        <div class="result-row">
-            <div class="box empty-box" id="monthlyInstallment10"></div>
-            <div class="box empty-box" id="profit10"></div>
-            <div class="box empty-box" id="totalAmount10"></div>
-        </div>
-    </div>
-
+    
     <script>
         function formatPriceAndCalculate(input) {
 
@@ -278,163 +131,43 @@
             const installmentCount = Number(document.getElementById("installments").value);
 
             if (isNaN(price) || isNaN(installmentCount) || installmentCount <= 0) {
-
-                // document.getElementById("profitWithEntrance3").innerText = "";
-                // document.getElementById("monthlyInstallmentwithEntrance3").innerText = "";
-                // document.getElementById("totalAmountWithEntrance3").innerText = "";
-
-                const elements=document.getElementsByClassName("empty-box");
-                for(let element of elements){
-                    element.innerText="";
-                }
+                document.getElementById("monthlyInstallmentWithWage").innerText=0;
+                document.getElementById("profit").innerText=0;
+                document.getElementById("totalAmount").innerText=0;
+                document.getElementById("monthlyInstallment").innerText=0;
+                document.getElementById("wage").innerText=0;
+                document.getElementById("due").innerText=0;
 
                 return;
             }
-            
-            // 3 percentage with entrance
-            const totalAmountWithEntrance3 =Math.round( price * 0.03 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance3 = Math.round(totalAmountWithEntrance3-price) ;
-            const monthlyInstallmentwithEntrance3 = Math.round(totalAmountWithEntrance3/installmentCount);
 
-            document.getElementById("profitWithEntrance3").innerText = profitWithEntrance3.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance3").innerText =monthlyInstallmentwithEntrance3.toLocaleString();
-            document.getElementById("totalAmountWithEntrance3").innerText = totalAmountWithEntrance3.toLocaleString();
-            
-            // 4 percentage with entrance
-            const totalAmountWithEntrance4 =Math.round( price * 0.04 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance4 =Math.round( totalAmountWithEntrance4-price );
-            const monthlyInstallmentwithEntrance4 = Math.round(totalAmountWithEntrance4/installmentCount);
+            const totalAmount =Math.round( price * 0.06 * (installmentCount+1) + price + price/10);
+            const profit = Math.round(totalAmount-price) ;
+            const monthlyInstallment = Math.round(totalAmount/installmentCount);
+            let wage=0
+            if (profit>0){
+                if (profit<10000000){
+                    wage=500000;
+                }
+                else if(profit<100000000){
+                    wage=Math.round((profit-10000000)*0.03 + 1000000);
+                }
+                else if(profit<500000000){
+                    wage=Math.round((profit-100000000)*0.016 + 3700000);
+                }
+                else{
+                    wage=10000000;
+                }
+            }
+            const monthlyInstallmentWithWage=Math.round((totalAmount+wage)/installmentCount);
+            const due=Math.round( price * 0.1 * (installmentCount+1) + price + price/10);
 
-            document.getElementById("profitWithEntrance4").innerText = profitWithEntrance4.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance4").innerText = monthlyInstallmentwithEntrance4.toLocaleString();
-            document.getElementById("totalAmountWithEntrance4").innerText = totalAmountWithEntrance4.toLocaleString();
-
-            // 5 percentage with entrance
-            const totalAmountWithEntrance5 =Math.round( price * 0.05 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance5 = Math.round(totalAmountWithEntrance5-price );
-            const monthlyInstallmentwithEntrance5 =Math.round( totalAmountWithEntrance5/installmentCount);
-
-            document.getElementById("profitWithEntrance5").innerText = profitWithEntrance5.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance5").innerText = monthlyInstallmentwithEntrance5.toLocaleString();
-            document.getElementById("totalAmountWithEntrance5").innerText = totalAmountWithEntrance5.toLocaleString();
-
-            // 6 percentage with entrance
-            const totalAmountWithEntrance6 =Math.round( price * 0.06 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance6 = Math.round(totalAmountWithEntrance6-price) ;
-            const monthlyInstallmentwithEntrance6 = Math.round(totalAmountWithEntrance6/installmentCount);
-
-            document.getElementById("profitWithEntrance6").innerText = profitWithEntrance6.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance6").innerText = monthlyInstallmentwithEntrance6.toLocaleString();
-            document.getElementById("totalAmountWithEntrance6").innerText = totalAmountWithEntrance6.toLocaleString();
-
-            // 7 percentage with entrance
-            const totalAmountWithEntrance7 =Math.round( price * 0.07 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance7 = Math.round(totalAmountWithEntrance7-price) ;
-            const monthlyInstallmentwithEntrance7 = Math.round(totalAmountWithEntrance7/installmentCount);
-
-            document.getElementById("profitWithEntrance7").innerText = profitWithEntrance7.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance7").innerText = monthlyInstallmentwithEntrance7.toLocaleString();
-            document.getElementById("totalAmountWithEntrance7").innerText = totalAmountWithEntrance7.toLocaleString();
-
-            // 8 percentage with entrance
-            const totalAmountWithEntrance8 =Math.round( price * 0.08 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance8 = Math.round(totalAmountWithEntrance8-price) ;
-            const monthlyInstallmentwithEntrance8 = Math.round(totalAmountWithEntrance8/installmentCount);
-
-            document.getElementById("profitWithEntrance8").innerText = profitWithEntrance8.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance8").innerText = monthlyInstallmentwithEntrance8.toLocaleString();
-            document.getElementById("totalAmountWithEntrance8").innerText = totalAmountWithEntrance8.toLocaleString();
-
-            // 9 percentage with entrance
-            const totalAmountWithEntrance9 =Math.round( price * 0.09 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance9 = Math.round(totalAmountWithEntrance9-price) ;
-            const monthlyInstallmentwithEntrance9 = Math.round(totalAmountWithEntrance9/installmentCount);
-
-            document.getElementById("profitWithEntrance9").innerText = profitWithEntrance9.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance9").innerText = monthlyInstallmentwithEntrance9.toLocaleString();
-            document.getElementById("totalAmountWithEntrance9").innerText = totalAmountWithEntrance9.toLocaleString();
-
-            // 10 percentage with entrance
-            const totalAmountWithEntrance10 =Math.round( price * 0.1 * (installmentCount+1) + price + price/10);
-            const profitWithEntrance10 = Math.round(totalAmountWithEntrance10-price) ;
-            const monthlyInstallmentwithEntrance10 = Math.round(totalAmountWithEntrance10/installmentCount);
-
-            document.getElementById("profitWithEntrance10").innerText = profitWithEntrance10.toLocaleString();
-            document.getElementById("monthlyInstallmentwithEntrance10").innerText = monthlyInstallmentwithEntrance10.toLocaleString();
-            document.getElementById("totalAmountWithEntrance10").innerText = totalAmountWithEntrance10.toLocaleString();
-
-            // 3 percentage
-            const totalAmount3 =Math.round( price * 0.03 * installmentCount + price );
-            const profit3 = Math.round(totalAmount3-price) ;
-            const monthlyInstallment3 = Math.round(totalAmount3/installmentCount);
-
-            document.getElementById("profit3").innerText = profit3.toLocaleString();
-            document.getElementById("monthlyInstallment3").innerText =monthlyInstallment3.toLocaleString();
-            document.getElementById("totalAmount3").innerText = totalAmount3.toLocaleString();
-
-            // 4 percentage
-            const totalAmount4 =Math.round( price * 0.04 * installmentCount + price );
-            const profit4 = Math.round(totalAmount4-price) ;
-            const monthlyInstallment4 = Math.round(totalAmount4/installmentCount);
-
-            document.getElementById("profit4").innerText = profit4.toLocaleString();
-            document.getElementById("monthlyInstallment4").innerText =monthlyInstallment4.toLocaleString();
-            document.getElementById("totalAmount4").innerText = totalAmount4.toLocaleString();
-
-            // 5 percentage
-            const totalAmount5 =Math.round( price * 0.05 * installmentCount + price );
-            const profit5 = Math.round(totalAmount5-price) ;
-            const monthlyInstallment5 = Math.round(totalAmount5/installmentCount);
-
-            document.getElementById("profit5").innerText = profit5.toLocaleString();
-            document.getElementById("monthlyInstallment5").innerText =monthlyInstallment5.toLocaleString();
-            document.getElementById("totalAmount5").innerText = totalAmount5.toLocaleString();
-
-            // 6 percentage
-            const totalAmount6 =Math.round( price * 0.06 * installmentCount + price );
-            const profit6 = Math.round(totalAmount6-price) ;
-            const monthlyInstallment6 = Math.round(totalAmount6/installmentCount);
-
-            document.getElementById("profit6").innerText = profit6.toLocaleString();
-            document.getElementById("monthlyInstallment6").innerText =monthlyInstallment6.toLocaleString();
-            document.getElementById("totalAmount6").innerText = totalAmount6.toLocaleString();
-
-            // 7 percentage
-            const totalAmount7 =Math.round( price * 0.07 * installmentCount + price );
-            const profit7 = Math.round(totalAmount7-price) ;
-            const monthlyInstallment7 = Math.round(totalAmount7/installmentCount);
-
-            document.getElementById("profit7").innerText = profit7.toLocaleString();
-            document.getElementById("monthlyInstallment7").innerText =monthlyInstallment7.toLocaleString();
-            document.getElementById("totalAmount7").innerText = totalAmount7.toLocaleString();
-
-            // 8 percentage
-            const totalAmount8 =Math.round( price * 0.08 * installmentCount + price );
-            const profit8 = Math.round(totalAmount8-price) ;
-            const monthlyInstallment8 = Math.round(totalAmount8/installmentCount);
-
-            document.getElementById("profit8").innerText = profit8.toLocaleString();
-            document.getElementById("monthlyInstallment8").innerText =monthlyInstallment8.toLocaleString();
-            document.getElementById("totalAmount8").innerText = totalAmount8.toLocaleString();
-
-            // 9 percentage
-            const totalAmount9 =Math.round( price * 0.09 * installmentCount + price );
-            const profit9 = Math.round(totalAmount9-price) ;
-            const monthlyInstallment9 = Math.round(totalAmount9/installmentCount);
-
-            document.getElementById("profit9").innerText = profit9.toLocaleString();
-            document.getElementById("monthlyInstallment9").innerText =monthlyInstallment9.toLocaleString();
-            document.getElementById("totalAmount9").innerText = totalAmount9.toLocaleString();
-
-            // 10 percentage
-            const totalAmount10 =Math.round( price * 0.1 * installmentCount + price );
-            const profit10 = Math.round(totalAmount10-price) ;
-            const monthlyInstallment10 = Math.round(totalAmount10/installmentCount);
-
-            document.getElementById("profit10").innerText = profit10.toLocaleString();
-            document.getElementById("monthlyInstallment10").innerText =monthlyInstallment10.toLocaleString();
-            document.getElementById("totalAmount10").innerText = totalAmount10.toLocaleString();
-
+            document.getElementById("monthlyInstallmentWithWage").innerText=monthlyInstallmentWithWage.toLocaleString();
+            document.getElementById("profit").innerText=profit.toLocaleString();
+            document.getElementById("totalAmount").innerText=totalAmount.toLocaleString();
+            document.getElementById("monthlyInstallment").innerText=monthlyInstallment.toLocaleString();
+            document.getElementById("wage").innerText=wage.toLocaleString();
+            document.getElementById("due").innerText=due.toLocaleString();
         }
     </script>
 </body>
