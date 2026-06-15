@@ -30,6 +30,8 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
+            font-size: large;
+            font-weight: 600;
         }
 
         .sub-row{
@@ -38,7 +40,7 @@
             background-color: #E7DFEC;
             border-radius: 8px;
             padding: 2px;
-            margin:12px auto;
+            margin:20px auto;
             display: flex;
             justify-content: flex-start;
         }
@@ -162,12 +164,12 @@
             const monthlyInstallmentWithWage=Math.round((totalAmount+wage)/installmentCount);
             const due=Math.round( price * 0.1 * (installmentCount+1) + price + price/10);
 
-            document.getElementById("monthlyInstallmentWithWage").innerText=monthlyInstallmentWithWage.toLocaleString();
-            document.getElementById("profit").innerText=profit.toLocaleString();
-            document.getElementById("totalAmount").innerText=totalAmount.toLocaleString();
-            document.getElementById("monthlyInstallment").innerText=monthlyInstallment.toLocaleString();
-            document.getElementById("wage").innerText=wage.toLocaleString();
-            document.getElementById("due").innerText=due.toLocaleString();
+            document.getElementById("monthlyInstallmentWithWage").innerText=monthlyInstallmentWithWage.toLocaleString('en-US');
+            document.getElementById("profit").innerText=profit.toLocaleString('en-US');
+            document.getElementById("totalAmount").innerText=totalAmount.toLocaleString('en-US');
+            document.getElementById("monthlyInstallment").innerText=monthlyInstallment.toLocaleString('en-US');
+            document.getElementById("wage").innerText=wage.toLocaleString('en-US');
+            document.getElementById("due").innerText=due.toLocaleString('en-US');
         }
     </script>
 </body>
