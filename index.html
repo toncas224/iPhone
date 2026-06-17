@@ -173,7 +173,7 @@
                 }
             }
             const monthlyInstallmentWithWage=Math.round((totalAmount+wage)/installmentCount);
-            const due=Math.round( price * 0.1 * (installmentCount+1) + price + price/10);
+            const due=Math.round( price * 0.12 * installmentCount + price);
 
             document.getElementById("monthlyInstallmentWithWage").innerText=monthlyInstallmentWithWage.toLocaleString('en-US');
             document.getElementById("profit").innerText=profit.toLocaleString('en-US');
