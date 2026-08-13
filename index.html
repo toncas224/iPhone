@@ -146,19 +146,13 @@
             let totalAmount = 0;
             let profit = 0 ;
             let monthlyInstallment = 0;
-            
             if(installmentCount<=4){
                 totalAmount =Math.round( price * 0.03 * (installmentCount+1) + price + price/10);
                 profit = Math.round(totalAmount-price) ;
                 monthlyInstallment = Math.round(totalAmount/installmentCount);
             }
-            else if(installmentCount<=12){
-                totalAmount =Math.round( price * 0.06 * installmentCount + price );
-                profit = Math.round(totalAmount-price) ;
-                monthlyInstallment = Math.round(totalAmount/installmentCount);
-            }
             else{
-                totalAmount =Math.round( price * 0.06 * (installmentCount+1) + price + price/10);
+                totalAmount =Math.round( price * 0.06 * installmentCount + price );
                 profit = Math.round(totalAmount-price) ;
                 monthlyInstallment = Math.round(totalAmount/installmentCount);
             }
